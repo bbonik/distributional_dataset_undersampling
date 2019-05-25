@@ -369,10 +369,10 @@ def plot_scatter_matrix(data,
     if column_names is None:
         column_names = ['D'+str(i) for i in range(data.shape[1])]
     
-    # auto set of alpha according to dataset size in the interval [0.1,0.9]
+    # auto set of alpha according to dataset size in the interval [0.1,0.7]
     if alpha is None:   
         alpha = (10000 - data.shape[0]) / 10000
-        if alpha > 0.9: alpha = 0.9
+        if alpha > 0.7: alpha = 0.7
         elif alpha < 0.1: alpha = 0.1
         
     # create a dataframe and plot the basic scatterplot matrix
