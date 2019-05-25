@@ -21,8 +21,8 @@ def main():
     data = scipy.io.loadmat('data/DATA_random_6D.mat')['A']
   
     indices_to_keep = undersample_dataset(data=data,
-                                          data_to_keep=10,
-                                          target_distribution='uniform',
+                                          data_to_keep=1000,
+                                          target_distribution='triangular',
                                           bins=10,
                                           lamda=0.5,
                                           verbose=True,

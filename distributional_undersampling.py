@@ -102,9 +102,7 @@ def undersample_dataset(data,
             scatterplot_matrix = False
         else:
             scatterplot_matrix = True
-            
 
-        
     result_status = ['optimal', 
                      'feasible', 
                      'infeasible', 
@@ -119,13 +117,13 @@ def undersample_dataset(data,
     x = np.arange(1,bins+1) - 0.5
     
     if target_distribution is 'uniform':
-        target_distribution = stats.uniform.pdf(x, loc=0, scale=bins)
+        target_pdf = stats.uniform.pdf(x, loc=0, scale=bins)
     elif target_distribution is 'gaussian':
-        target_distribution = stats.norm.pdf(x, loc=bins/2, scale=1)
+        target_pdf = stats.norm.pdf(x, loc=bins/2, scale=1)
     elif target_distribution is 'weibull':
-        target_distribution = stats.weibull_min.pdf(x, c=5, loc=2, scale=1)
+        target_pdf = stats.weibull_min.pdf(x, c=5, loc=2, scale=1)
     elif target_distribution is 'triangular':
-        target_distribution = stats.triang.pdf(x, c=0.75, loc=0, scale=bins)
+        target_pdf = stats.triang.pdf(x, c=0.75, loc=0, scale=bins)
 
     #------------------------------------------------ quantizing data into bins
     
@@ -163,7 +161,7 @@ def undersample_dataset(data,
     #------- constructing the data for correlation minimization (2nd objective)
     
     #estimating the final distribution in each dimension
-    avg=np.dot(((np.arange(1,bins+1) - 0.5)/bins), target_distribution)
+    avg=np.dot(((np.arange(1,bins+1) - 0.5)/bins), target_pdf)
     
     qq = np.zeros([data_observations, int(comb(data_dimensions,2))],
                    dtype=float)
@@ -238,7 +236,7 @@ def undersample_dataset(data,
         for n in range(bins):  #across all quantization bins
     
             
-            b = np.ceil(target_distribution[n] * data_to_keep)
+            b = np.ceil(target_pdf[n] * data_to_keep)
     
             a = np.zeros(data_dimensions*bins, dtype=float)
             z = m * bins + n #2D to 1D
@@ -302,18 +300,20 @@ def undersample_dataset(data,
                                 column_names=None,
                                 show_correlation=True,
                                 alpha=None,
-                               title=('Reduced dataset (' + 
+                                title=('Undersampled dataset (' + 
                                        str(indx_selected.sum()) + 
-                                       ' datapoints)')
+                                       ' datapoints) - ' +
+                                       target_distribution)
                                 )
                                
             plot_scatter_matrix(data_quantized[indx_selected,:],
                                 column_names=None,
                                 show_correlation=True,
                                 alpha=None,
-                                title=('Reduced dataset quantized (' + 
+                                title=('Undersampled dataset quantized (' + 
                                        str(indx_selected.sum()) + 
-                                       ' datapoints)')
+                                       ' datapoints) - ' +
+                                       target_distribution)
                                 )
 
         
@@ -371,7 +371,7 @@ def plot_scatter_matrix(data,
     
     # auto set of alpha according to dataset size in the interval [0.1,0.7]
     if alpha is None:   
-        alpha = (10000 - data.shape[0]) / 10000
+        alpha = (5000 - data.shape[0]) / 5000
         if alpha > 0.7: alpha = 0.7
         elif alpha < 0.1: alpha = 0.1
         
