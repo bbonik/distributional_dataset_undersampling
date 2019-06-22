@@ -254,7 +254,7 @@ def undersample_dataset(data,
             progress = round((k*100)/total_constraints)
             
             if verbose is True:
-                if progress >= 11:
+                if progress >= 10:
                     print('\b\b\b\b\b[%d%%]\r'%progress, end='')
                 else:
                     print('\b\b\b\b[%d%%]\r'%progress, end='')
