@@ -224,7 +224,7 @@ def undersample_dataset(data,
     total_constraints = data_dimensions * bins
     
     if verbose is True:
-        print('Adding contstraints [0%]\r', end='')
+        print('Adding contstraints [%3d%%]' % 0, end='')
     
     # distribution constraints
     k=0
@@ -254,10 +254,7 @@ def undersample_dataset(data,
             progress = round((k*100)/total_constraints)
             
             if verbose is True:
-                if progress >= 10:
-                    print('\b\b\b\b\b[%d%%]\r'%progress, end='')
-                else:
-                    print('\b\b\b\b[%d%%]\r'%progress, end='')
+                print('\b\b\b\b\b\b[%3d%%]' % progress, end='')
             
       
     if verbose is True:

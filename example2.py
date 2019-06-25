@@ -13,6 +13,7 @@ import matplotlib.pyplot as plt
 from distributional_undersampling import undersample_dataset
 
 
+
 def generate_random_data(total_data, seed, redundancy=0.1):
     
 
@@ -88,12 +89,11 @@ def main():
     plt.close('all')
     
 
-    random_seed = 2
     
     # generating random dataset of 10 dimensions and different distributions
     
-    data_observations = 3500
-    data_dimensions = 4
+    data_observations = 5000
+    data_dimensions = 5
     A = np.zeros([data_observations, data_dimensions], dtype=float)
     
     
@@ -105,7 +105,7 @@ def main():
 
     
     indices_to_keep = undersample_dataset(data=A,
-                                          data_to_keep=200,
+                                          data_to_keep=1000,
                                           target_distribution='uniform',
                                           bins=10,
                                           lamda=0.5,

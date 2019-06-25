@@ -22,7 +22,7 @@ def main():
   
     indices_to_keep = undersample_dataset(data=data,
                                           data_to_keep=1000,
-                                          target_distribution='triangular',
+                                          target_distribution='uniform',
                                           bins=10,
                                           lamda=0.5,
                                           verbose=True,
