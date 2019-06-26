@@ -2,8 +2,10 @@
 # -*- coding: utf-8 -*-
 """
 Created on Sun May 12 09:50:36 2019
-
 @author: bbonik
+
+Simple script to explore different free datasets for distributional 
+undersampling
 """
 import pandas as pd
 import sklearn
