@@ -1,7 +1,7 @@
 # distributional_undersampling()
 A Mixed Integer Linear Programming (**MILP**) Python function for **undersampling a dataset** while enforcing a particular **target distribution** across multiple dimensions. The function leverages on the (possible) **redundancies** in a large dataset to generate a more **compact** version of it with a specified target distribution across each attribute/dimension, while simultaneously minimizing linear correlations among them. 
 
-<img src="https://github.com/bbonik/distributional_dataset_undersampling/blob/master/data/example.png" width="800" height="800">
+<img src="https://github.com/bbonik/distributional_dataset_undersampling/blob/master/data/example.png" width="900" height="900">
 
 # Introduction
 Datasets can be highly unbalanced: some values/categories may be over-represented, while others may be under-represented. Such imbalance may have a negative impact on many machine learning techniques: the learning algorithm may be very accurate for the over-represented classes, while exhibiting a very high error for the under-represented ones. **Oversampling** (replicating the under-represented classes) or **undersampling** (reducing the over-represented classes) are two typical approaches to address this problem. 
