@@ -1,5 +1,5 @@
 # distributional_undersampling()
-A Mixed Integer Linear Programming (MILP) Python function for undersampling a dataset while enforcing a particular distribution across multiple dimensions. The function leverages on the (possible) *redundancies* in a large dataset to generate a more *compact* version of it with a specified target distribution across each attribute/dimension, while simultaneously minimizing linear correlations among them. 
+A Mixed Integer Linear Programming (**MILP**) Python function for **undersampling a dataset** while enforcing a particular **target distribution** across multiple dimensions. The function leverages on the (possible) **redundancies** in a large dataset to generate a more **compact** version of it with a specified target distribution across each attribute/dimension, while simultaneously minimizing linear correlations among them. 
 
 <img src="https://github.com/bbonik/distributional_dataset_undersampling/blob/master/data/example.png" width="800" height="800">
 
@@ -20,4 +20,4 @@ In summary, given a large dataset and a required target distribution, the MILP o
 2. Minimizes linear correlations between dimensions.
 As such, this technique can be seen as *complementary to dimensionality reduction*: instead of reducing feature dimensions while maintaining the number of observations, we reduce the number of observations while imposing distributional constraints on the dimensions.
 
-The above figure depicts covariance scatter plots for a 6-dimensional dataset with 11K data points. Distribution for each dimension is given by a histogram, while Pearson correlation rho between dimensions and corresponding p-value (in parentheses) are mentioned for each scatter plot. Dimension 6 (D6) is a linear combination of D1 and D4. Three subsets of 1K datapoints are generated with our data shaping technique, so as to have Uniform, Gaussian and Weibull distributions, while minimising correlations between different dimensions.
+The above figure depicts covariance scatter plots for a 6-dimensional dataset with 11K data points. Distribution for each dimension is given by a histogram, while Pearson correlation rho between dimensions and corresponding p-value (in parentheses) are mentioned for each scatter plot. Dimension 6 (D6) is a linear combination of D1 and D4. Three subsets of 1K datapoints are generated with our data shaping technique, so as to have Uniform, Gaussian and Triangular distributions, while minimising correlations between different dimensions.
