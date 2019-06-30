@@ -21,6 +21,6 @@ As such, our technique can be seen as complementary to dimensionality reduction:
 The following figure depicts covariance scatter plots for a 6-dimensional dataset with 11K data points. Distribution for each dimension is given by a histogram, while Pearson correlation rho between dimensions and corresponding p-value (in parentheses) are mentioned for each scatter plot. Dimension 6 (D6) is a linear combination of D1 and D4. Three subsets of 1K datapoints are generated with our data shaping technique, so as to have Uniform, Gaussian and Weibull distributions, while minimising correlations between different dimensions.
 
 
-
+<img src="https://github.com/bbonik/distributional_dataset_undersampling/tree/master/data/example.png" width="250">
 
 ![](https://github.com/bbonik/distributional_dataset_undersampling/tree/master/data/example.png =250x250)
