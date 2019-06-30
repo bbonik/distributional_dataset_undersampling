@@ -1,7 +1,9 @@
 # distributional_dataset_undersampling()
 A Mixed Integer Linear Programming (MILP) Python function for undersampling a dataset while enforcing a particular distribution across multiple dimensions.
 
-<div style="width: 500px; height: 250px; overflow: hidden">
+
+
+<div style="width: 500px; height: 250px; overflow: hidden;">
   <img src="https://github.com/bbonik/distributional_dataset_undersampling/blob/master/data/example.png" width="500">
 </div>
 
