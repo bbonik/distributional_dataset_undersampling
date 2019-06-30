@@ -16,8 +16,8 @@ Datasets can be highly unbalanced: some values/categories may be over-represente
 Here, a new **undersampling MILP-based dataset shaping** technique is introduced. The proposed optimization leverages on the (possible) *redundancies* in a large dataset to generate a more *compact* version of the original dataset with a specified target distribution across each attribute/dimension, while simultaneously minimizing linear correlations among them. 
 
 In summary, given a large dataset and a required target distribution, the MILP optimisation method creates a compact subset of the original dataset by finding the optimal combination of datapoints that:
-1. Enforces the target distribution across all dimensions.
-2. Minimizes linear correlations between dimensions.
+1. **Enforces the target distribution across all dimensions**.
+2. **Minimizes linear correlations between dimensions**.
 As such, this technique can be seen as *complementary to dimensionality reduction*: instead of reducing feature dimensions while maintaining the number of observations, we reduce the number of observations while imposing distributional constraints on the dimensions.
 
 The above figure depicts covariance scatter plots for a 6-dimensional dataset with 11K data points. Distribution for each dimension is given by a histogram, while Pearson correlation rho between dimensions and corresponding p-value (in parentheses) are mentioned for each scatter plot. Dimension 5 (D5) is a linear combination of D0 and D3. Three subsets of 1K datapoints are generated with our data shaping technique, so as to have Uniform, Gaussian and Triangular distributions, while minimising correlations between different dimensions.
