@@ -28,4 +28,4 @@ The function makes use of the **ortools** library from Google. Please install th
 # Citations
 If you use this code for research puproses please cite the following papers:   
 1. [Vonikakis, V., Subramanian, R., Arnfred, J., & Winkler, S. A Probabilistic Approach to People-Centric Photo Selection and Sequencing.  IEEE Transactions in Multimedia, 11(19), pp.2609-2624, 2017.](https://www.researchgate.net/publication/316569587_A_Probabilistic_Approach_to_People-Centric_Photo_Selection_and_Sequencing)
-2. V. Vonikakis, R. Subramanian, S. Winkler. Shaping Datasets: Optimal Data Selection for Specific Target Distributions. Proc. ICIP2016, Phoenix, USA, Sept. 25-28, 2016.
+2. [V. Vonikakis, R. Subramanian, S. Winkler. Shaping Datasets: Optimal Data Selection for Specific Target Distributions. Proc. ICIP2016, Phoenix, USA, Sept. 25-28, 2016.](http://vintage.winklerbros.net/Publications/icip2016a.pdf)
