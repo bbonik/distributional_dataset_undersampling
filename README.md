@@ -21,3 +21,11 @@ In summary, given a large dataset and a required target distribution, the MILP o
 As such, this technique can be seen as *complementary to dimensionality reduction*: instead of reducing feature dimensions while maintaining the number of observations, we reduce the number of observations while imposing distributional constraints on the dimensions.
 
 The above figure depicts covariance scatter plots for a 6-dimensional dataset with 11K data points. Distribution for each dimension is given by a histogram, while Pearson correlation rho between dimensions and corresponding p-value (in parentheses) are mentioned for each scatter plot. Dimension 5 (D5) is a linear combination of D0 and D3. Three subsets of 1K datapoints are generated with our data shaping technique, so as to have Uniform, Gaussian and Triangular distributions, while minimising correlations between different dimensions.
+
+# Dependences
+The function makes use of the ortools library from Google. Please install the ortools package as described in the following link: https://developers.google.com/optimization/install/
+
+# Citations
+If you use this code for research puproses please cite the following papers:   
+1. Vonikakis, V., Subramanian, R., Arnfred, J., & Winkler, S. A Probabilistic Approach to People-Centric Photo Selection and Sequencing.  IEEE Transactions in Multimedia, 11(19), pp.2609-2624, 2017.
+2. V. Vonikakis, R. Subramanian, S. Winkler. Shaping Datasets: Optimal Data Selection for Specific Target Distributions. Proc. ICIP2016, Phoenix, USA, Sept. 25-28, 2016.
