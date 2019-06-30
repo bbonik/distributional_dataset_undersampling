@@ -25,6 +25,4 @@ The following figure depicts covariance scatter plots for a 6-dimensional datase
 
 <a href="url"><img src="https://github.com/bbonik/distributional_dataset_undersampling/blob/master/data/example.png" align="center" height="500" width="500" ></a>
 
-<img src="https://github.com/bbonik/distributional_dataset_undersampling/blob/master/data/example.png" width="250">
-
-![](https://github.com/bbonik/distributional_dataset_undersampling/blob/master/data/example.png =250x250)
+<img src="https://github.com/bbonik/distributional_dataset_undersampling/blob/master/data/example.png" width="500">
