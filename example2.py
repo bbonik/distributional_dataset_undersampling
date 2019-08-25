@@ -8,7 +8,7 @@ Example script to demonstrate the use of the distributional undersampling
 technique. A N-dimensional dataset is randomly created. Different dimensions,
 distributions and datapoints can be selected. Then the undersampling function 
 is called, in order to create a balanced subset across all given dimensions. 
-Different tarket distributions can be achieved by using the correct input
+Different target distributions can be achieved by using the correct input
 string.
 """
 
@@ -43,7 +43,8 @@ def generate_random_data(total_data, seed, redundancy=0.1):
             have a random distribution and 10% will follow a uniform 
             distribution. This is done in order to ensure that some datapoints
             will cover all possible range of values. Otherwise, some random 
-            distributions may have values concentrated in a smaller region.
+            distributions may have values concentrated in a smaller range, 
+            without covering all the possible values.
 
         
     OUTPUT

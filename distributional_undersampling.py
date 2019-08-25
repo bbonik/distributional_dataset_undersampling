@@ -8,7 +8,6 @@ Created on Thu May 23 21:47:48 2019
 from __future__ import print_function
 from ortools.linear_solver import pywraplp
 from scipy import stats
-import scipy.io
 import numpy as np
 import pandas as pd
 import matplotlib.pyplot as plt
@@ -21,6 +20,7 @@ from scipy.special import comb
 
 def undersample_dataset(data,
                         data_to_keep=1000,
+                        data_scaling = 'minmax',
                         target_distribution='uniform',
                         bins=10,
                         lamda=0.5,
@@ -48,14 +48,17 @@ def undersample_dataset(data,
         data: numpy.array [N,M]
             Array of datapoints of N observations and M dimensions. All 
             datapoints should be within the interval [0,1].
-        target_distribution : 'uniform', 'gaussian', 'weibull', 'triangular'
+        data_to_keep: int
+            The number of datapoints to keep from the original dataset, in the
+            interval of [1,N].
+        data_scaling: {'minmax', None}
+            Type of scaling to be applied on each feature. If None, no scaling
+            is applied.
+        target_distribution : {'uniform', 'gaussian', 'weibull', 'triangular'}
             String defining the type of distribution to be enforced on the
             resulting subsampled dataset, by selecting the appropriate 
             datapoints that will create this distribution. Selecting 'uniform' 
             will result in a balanced dataset.
-        data_to_keep: int
-            The number of datapoints to keep from the original dataset, in the
-            interval of [1,N].
         bins: int
             The number of bins in which, the dataset will be quantized in order
             to run the integer programming.
@@ -65,7 +68,7 @@ def undersample_dataset(data,
             correlation minimization constraints also.
         verbose: bool
             Wether to show the stages of the proceedure.
-        scatterplot_matrix: True / False / 'auto'
+        scatterplot_matrix: {True, False, 'auto'}
             Depict or not a scatterplot matrix of the dataset distributions
             across all dimensions for the input and the undersampled datasets. 
             If 'auto' the scatterplot matrix is depicted only for datasets of 
@@ -89,7 +92,6 @@ def undersample_dataset(data,
     
     # TODO: make target distribution different adjustable across dimensions. 
     # TODO: Also, wildcard dimensions?
-    # TODO: auto normalize input data
     
     #------------------------------------------------------ internal parameters
     
@@ -111,6 +113,15 @@ def undersample_dataset(data,
                      'unbounded']
     
     plt.style.use('ggplot')
+    
+    
+    #--------------------------------------------------------------data scaling
+    
+    # min-max normalization per feature
+    if data_scaling is 'minmax':
+        data_min = np.min(data, axis=0)
+        data_max = np.max(data, axis=0)
+        data = (data - data_min) / (data_max - data_min)
 
     #--------------------------------------------- defining target distribution
 
@@ -224,7 +235,7 @@ def undersample_dataset(data,
     total_constraints = data_dimensions * bins
     
     if verbose is True:
-        print('Adding contstraints [%3d%%]' % 0, end='')
+        print('Adding constraints [%3d%%]' % 0, end='')
     
     # distribution constraints
     k=0
